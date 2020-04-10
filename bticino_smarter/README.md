@@ -32,30 +32,20 @@ First Reply Url = https://myWebServerIP:myWebServerPort/callback
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/app1.png?raw=true "App Register")
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/app2.png?raw=true "App Register")
 
-## 2. API CONFIGURATION
+## 2. CONFIGURATION
 
-### 2.1. Install Requirements
-- python3 pip3
-
-- To install **Api Requirements** run:
-  ```
-  pip3 install -r requirements.txt
-  ```
-
-### 2.2. Update your config.yml
+### 2.1. Update your config
+```
 client_id: "Recived via mail"<br>
 client_secret: "Recived via mail"<br>
 subscription_key: "Your Subscription Key"<br>
 redirect_url: "Your VALID Redirect Url"<br>
-
-### 2.3. Nat API port:5588 on your router/firewall (Only for the first Oauth)
-
-## 3. API START
-### 3.1. Run app
 ```
-python3 bticino.py
-```
-### 3.2. 1st RUN
+### 2.2. Nat API port:5588 on your router/firewall (Only for the first Oauth)
+
+## 3. START
+
+### 3.1. 1st RUN
 - Navigate to http://my_hassio_ip:5588/get_code and click ***get your code***
 
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api1.png?raw=true "Api Allow")
@@ -75,7 +65,7 @@ python3 bticino.py
 
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api4.png?raw=true "Api Allow")
 
-### 3.3. Request Thermostat status
+### 3.2. Request Thermostat status
 
 - **Navigate to http://my_hassio_ip:5588/rest**
 

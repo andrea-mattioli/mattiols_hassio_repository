@@ -1,1 +1,1 @@
-#Home Assistant Reposotory
+#Home Assistant Repository

@@ -123,8 +123,8 @@ redirect_url: "Your VALID Redirect Url"<br>
 
 ### Results
 
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/home_ass1.png?raw=true "Api Allow")
+![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/home_ass1.PNG?raw=true "Api Allow")
 
 ###
 
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/home_ass2.png?raw=true "Api Allow")
+![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/home_ass2.PNG?raw=true "Api Allow")

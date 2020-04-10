@@ -1,5 +1,5 @@
-# Bticino X8000 Rest Api
-Chronothermostat Bticino X8000 Rest Api
+# Bticino Home Assistant Integration
+Chronothermostat Bticino X8000 Integration
 
 **BY NOW READ ONLY**
 
@@ -56,7 +56,7 @@ redirect_url: "Your VALID Redirect Url"<br>
 python3 bticino.py
 ```
 ### 3.2. 1st RUN
-- Navigate to http://my_api_ip:5588/get_code and click ***get your code***
+- Navigate to http://my_hassio_ip:5588/get_code and click ***get your code***
 
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api1.png?raw=true "Api Allow")
 
@@ -77,7 +77,7 @@ python3 bticino.py
 
 ### 3.3. Request Thermostat status
 
-- **Navigate to http://my_api_ip:5588/rest**
+- **Navigate to http://my_hassio_ip:5588/rest**
 
 **ll return a json with the status of your thermostat!**
 
@@ -87,7 +87,7 @@ python3 bticino.py
 
 ## 4. HOME ASSISTANT INTEGRATION
 
-- ** Create a rest sensor for example **
+- **Create a rest sensor for example**
 
 ```
 - platform: rest
@@ -130,3 +130,11 @@ python3 bticino.py
       entity_id: sensor.termostato
       unit_of_measurement: "%"
 ```
+
+### Results
+
+![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/home_ass1.png?raw=true "Api Allow")
+
+###
+
+![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/home_ass2.png?raw=true "Api Allow")

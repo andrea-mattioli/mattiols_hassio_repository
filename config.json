@@ -1,0 +1,24 @@
+{
+  "name": "Bticino Smarter",
+  "version": "0.1",
+  "slug": "smarter_x8000",
+  "description": "Bticino Chronothermostats RestApi",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "before",
+  "boot": "auto",
+  "options": {
+  "client_id": "recived via email",
+  "client_secret": "recived via email",
+  "subscription_key": "subscription key",
+  "redirect_url": "my home redirect url"
+  },
+  "schema": {
+  "client_id": "str",
+  "client_secret": "password",
+  "subscription_key": "password",
+  "redirect_url": "url"
+  },
+  "ports": {
+    "5588/tcp": 5588
+  }
+}

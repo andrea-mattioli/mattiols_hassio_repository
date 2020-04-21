@@ -1,6 +1,6 @@
 {
   "name": "Bticino Smarter",
-  "version": "0.1",
+  "version": "0.2",
   "url": "https://github.com/andrea-mattioli/bticino_X8000_rest_api",
   "slug": "smarter_x8000",
   "description": "Bticino Chronothermostats RestApi",
@@ -11,13 +11,29 @@
   "client_id": "recived via email",
   "client_secret": "recived via email",
   "subscription_key": "subscription key",
-  "redirect_url": "my home redirect url"
+  "redirect_url": "my home redirect url",
+  "api_user": "chose your api user",
+  "api_pass": "chose your api password",
+  "subscribe_c2c": "True|False Use to receive thermostat status from Legrand (Safe 500 query/day)",
+  "mqtt_broker": "ip broker",
+  "mqtt_port": "mqtt broker port default:1883",
+  "mqtt_user": "your mqtt user",
+  "mqtt_pass": "your mqtt password",
+  "mqtt_interval": "time of query interval recommended: 5 (NOT USED IF subscribe_c2c = True)"
   },
   "schema": {
   "client_id": "str",
   "client_secret": "password",
   "subscription_key": "password",
-  "redirect_url": "url"
+  "redirect_url": "url",
+  "api_user": "str",
+  "api_pass": "password",
+  "subscribe_c2c": "bool",
+  "mqtt_broker": "str",
+  "mqtt_port": "port",
+  "mqtt_user": "str",
+  "mqtt_pass": "password",
+  "mqtt_interval": "int"
   },
   "ports": {
     "5588/tcp": 5588

@@ -8,6 +8,7 @@ WORKDIR /hassio_bticino_smarter
 RUN apk add --no-cache \
         python3 \
         git \
+        mosquitto-clients \
     \
   && git clone https://github.com/andrea-mattioli/bticino_X8000_rest_api.git \
   && mv bticino_X8000_rest_api/* /hassio_bticino_smarter/ \

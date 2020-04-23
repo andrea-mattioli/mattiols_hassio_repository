@@ -36,17 +36,20 @@ First Reply Url = https://myWebServerIP:myWebServerPort/callback
 
 ### 2.1. Update your config
 ```
-client_id: "Recived via mail"<br>
-client_secret: "Recived via mail"<br>
-subscription_key: "Your Subscription Key"<br>
-redirect_url: "Your VALID Redirect Url"<br>
+    client_id: "Recived via mail"
+    client_secret: "Recived via mail"
+    subscription_key: "Your Subscription Key"
+    redirect_url: "Your VALID Redirect Url"
+    api_user: "Chose your api user (Login for http://myip:5588 NOT for Legrand)"
+    api_pass: "Chose your api password (Login for http://myip:5588 NOT for Legrand)"
+    subscribe_c2c: "True|False Use to receive thermostat status from Legrand (Safe 500 query/day)"
 ```
 ### 2.2. Nat API port:5588 on your router/firewall (Only for the first Oauth)
-
+N.B Use a valid ssl certificate for path "/callback" you can do it with nginx or apache reverse proxy
 ## 3. START
 
 ### 3.1. 1st RUN
-- Navigate to http://my_hassio_ip:5588/get_code and click ***get your code***
+- Navigate to http://my_hassio_ip:5588/ and click ***get your code***
 
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api1.png?raw=true "Api Allow")
 
@@ -69,7 +72,7 @@ redirect_url: "Your VALID Redirect Url"<br>
 
 - **Navigate to http://my_hassio_ip:5588/rest**
 
-**ll return a json with the status of your thermostat!**
+**ll return a json with the status of your thermostats!**
 
 
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api5.png?raw=true "Api Allow")
@@ -80,47 +83,30 @@ redirect_url: "Your VALID Redirect Url"<br>
 - **Create a rest sensor for example**
 
 ```
-- platform: rest
-  name: Termostato
-  json_attributes:
-    - mode
-    - function
-    - state
-    - temperature
-    - humidity
-  resource: http://my_hassio_ip:5588/rest/
-  value_template: '{{ value_json.state }}'
-  scan_interval:
-   days: 0
-   hours: 0 
-   minutes: 3
-   seconds: 0
-- platform: template
-  sensors:
-    termostato_mode:
-      friendly_name: 'Modalità Termostato'
-      value_template: '{{ states.sensor.termostato.attributes["mode"] }}'
-      entity_id: sensor.termostato
-    termostato_function:
-      friendly_name: 'Funzione Termostato'
-      value_template: '{{ states.sensor.termostato.attributes["function"] }}'
-      entity_id: sensor.termostato
-    termostato_state:
-      friendly_name: 'Stato Termostato'
-      value_template: '{{ states.sensor.termostato.attributes["state"] }}'
-      entity_id: sensor.termostato
-    termostato_temperature:
-      friendly_name: 'Temperatura Sala'
-      value_template: '{{ states.sensor.termostato.attributes["temperature"] }}'
-      entity_id: sensor.termostato
-      unit_of_measurement: "°C"
-    termostato_humidity:
-      friendly_name: 'Umidità Sala'
-      value_template: '{{ states.sensor.termostato.attributes["humidity"] }}'
-      entity_id: sensor.termostato
-      unit_of_measurement: "%"
+- platform: mqtt
+  name: termostato_sala_temperature
+  state_topic: "/bticino/f9160185-7a27-4f70-e053-27182d0a51c5/status"
+  unit_of_measurement: '°C'
+  value_template: "{{ value_json['temperature'] }}"
+- platform: mqtt
+  name: termostato_sala_humidity
+  state_topic: "/bticino/f9160185-7a27-4f70-e053-27182d0a51c5/status"
+  unit_of_measurement: '%'
+  value_template: "{{ value_json.humidity }}"
+- platform: mqtt
+  name: termostato_sala_function
+  state_topic: "/bticino/f9160185-7a27-4f70-e053-27182d0a51c5/status"
+  value_template: "{{ value_json.function }}"
+- platform: mqtt
+  name: termostato_sala_state
+  state_topic: "/bticino/f9160185-7a27-4f70-e053-27182d0a51c5/status"
+  value_template: "{{ value_json.state }}"
+- platform: mqtt
+  name: termostato_sala_mode
+  state_topic: "/bticino/f9160185-7a27-4f70-e053-27182d0a51c5/status"
+  value_template: "{{ value_json.mode }}"
 ```
-
+change the state_topic for each thermostat
 ### Results
 
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/home_ass1.PNG?raw=true "Api Allow")

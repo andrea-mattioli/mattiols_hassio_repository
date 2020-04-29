@@ -1,9 +1,9 @@
 # Bticino Home Assistant Integration
 Chronothermostat Bticino X8000 Integration
 
-**BY NOW READ ONLY**
-
 [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
+
+[![Sponsor Mattiols via GitHub Sponsors][github-sponsors-shield]][github-sponsors]
 
 ## 1. First step
 
@@ -24,10 +24,10 @@ Submit your request and wait for a response via email from Legrand (it usually t
 If your app has been approved, you should find in the email your "Client ID" and "Client Secret" attributes.
 
 ```
-Public Url = https://myWebServerIP:myWebServerPort/rest
+Public Url = https://myDomain:5588/
 ```
 ```
-First Reply Url = https://myWebServerIP:myWebServerPort/callback
+First Reply Url = https://myDomain:5588/callback
 ```
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/app1.png?raw=true "App Register")
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/app2.png?raw=true "App Register")
@@ -36,20 +36,25 @@ First Reply Url = https://myWebServerIP:myWebServerPort/callback
 
 ### 2.1. Update your config
 ```
-    client_id: "Recived via mail"
-    client_secret: "Recived via mail"
-    subscription_key: "Your Subscription Key"
-    redirect_url: "Your VALID Redirect Url"
-    api_user: "Chose your api user (Login for http://myip:5588 NOT for Legrand)"
-    api_pass: "Chose your api password (Login for http://myip:5588 NOT for Legrand)"
-    subscribe_c2c: "True|False Use to receive thermostat status from Legrand (Safe 500 query/day)"
+client_id: recived via email
+client_secret: recived via email
+subscription_key: subscription key
+domain: my home domain example.com
+api_user: chose your api user
+api_pass: chose your api password
+mqtt_broker: ip broker
+mqtt_port: 'mqtt broker port default:1883'
+mqtt_user: your mqtt user
+mqtt_pass: your mqtt password
+use_ssl: 'True|False {False} for nginx proxy manager'
 ```
-### 2.2. Nat API port:5588 on your router/firewall (Only for the first Oauth)
-N.B Use a valid ssl certificate for path "/callback" you can do it with nginx or apache reverse proxy
+### 2.2. Nat API port: "80,5588" on your router/firewall 
+If you use "use_ssl: true" and you have already a valid ssl certificate installed in your hassio env, you can open only 5588 on your router, but if you want a new certificate you must open http port 80!
+Else if you use Nginx proxy manager use "use_ssl: false" and proxy bticino_smarter app with nginx!
 ## 3. START
 
 ### 3.1. 1st RUN
-- Navigate to http://my_hassio_ip:5588/ and click ***get your code***
+- Navigate to {http/https}://my_hassio_ip:5588/ and click ***get your code***
 
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api1.png?raw=true "Api Allow")
 
@@ -68,45 +73,80 @@ N.B Use a valid ssl certificate for path "/callback" you can do it with nginx or
 
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api4.png?raw=true "Api Allow")
 
-### 3.2. Request Thermostat status
-
-- **Navigate to http://my_hassio_ip:5588/rest**
-
-**ll return a json with the status of your thermostats!**
-
-
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api5.png?raw=true "Api Allow")
-
-
 ## 4. HOME ASSISTANT INTEGRATION
 
-- **Create a rest sensor for example**
+- **Create a mqtt sensor for example**
 
 ```
 - platform: mqtt
   name: termostato_sala_temperature
-  state_topic: "/bticino/f9160185-7a27-4f70-e053-27182d0a51c5/status"
+  state_topic: "/bticino/{id}/status"
   unit_of_measurement: '°C'
-  value_template: "{{ value_json['temperature'] }}"
+  value_template: "{{ value_json.temperature }}"
 - platform: mqtt
   name: termostato_sala_humidity
-  state_topic: "/bticino/f9160185-7a27-4f70-e053-27182d0a51c5/status"
+  state_topic: "/bticino/{id}/status"
   unit_of_measurement: '%'
   value_template: "{{ value_json.humidity }}"
 - platform: mqtt
   name: termostato_sala_function
-  state_topic: "/bticino/f9160185-7a27-4f70-e053-27182d0a51c5/status"
+  state_topic: "/bticino/{id}/status"
   value_template: "{{ value_json.function }}"
 - platform: mqtt
   name: termostato_sala_state
-  state_topic: "/bticino/f9160185-7a27-4f70-e053-27182d0a51c5/status"
+  state_topic: "/bticino/{id}/status"
   value_template: "{{ value_json.state }}"
 - platform: mqtt
   name: termostato_sala_mode
-  state_topic: "/bticino/f9160185-7a27-4f70-e053-27182d0a51c5/status"
+  state_topic: "/bticino/{id}/status"
   value_template: "{{ value_json.mode }}"
 ```
 change the state_topic for each thermostat
+
+- **MQTT command payload**
+```
+topic command: /bticino/{id}/cmd
+topic callback: /bticino/{id}/status
+PAYLOAD: 
+  AUTOMATIC
+  MANUAL
+  HEATING
+  COOLING
+  OFF
+  OFF (integer)m
+  OFF (integer)h
+  OFF (integer)d
+  PROTECTION
+  BOOST-30
+  BOOST-60
+  BOOST-90
+  (number)
+  (number) (integer)m
+  (number) (integer)h
+  (number) (integer)d
+
+example:
+    AUTOMATIC --> set thermostat mode to automatic
+    MANUAL --> set thermostat mode to manual
+    BOOST-30 --> set thermostat mode to boost for 30 minutes
+    BOOST-60 --> set thermostat mode to boost for 60 minutes
+    BOOST-90 --> set thermostat mode to boost for 90 minutes
+    HEATING --> set thermostat function to heat
+    COOLING --> set thermostat function to cool
+    20 --> set thermostat temperature at 20 C° in maual mode forever
+    18 --> set thermostat temperature at 18 C° in maual mode forever
+    21.5 --> set thermostat temperature at 21.5 C° in maual mode forever
+    20 5m --> set thermostat temperature at 20 C° in maual mode for 5 minutes
+    20 1h --> set thermostat temperature at 20 C° in maual mode for 1 hour
+    20 1d --> set thermostat temperature at 20 C° in maual mode for 1 day
+    OFF --> turn off thermostat forever
+    OFF 5m --> turn off thermostat for 5 minutes
+    OFF 3h --> turn off thermostat for 3 hours
+    OFF 2d --> turn off thermostat for 2 day
+    PROTECTION --> set thermostat mode to protection forever
+```
+change the state_topic and cmd_topic for each thermostat
+
 ### Results
 
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/home_ass1.PNG?raw=true "Api Allow")
@@ -114,3 +154,6 @@ change the state_topic for each thermostat
 ###
 
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/home_ass2.PNG?raw=true "Api Allow")
+
+[github-sponsors-shield]: https://github.com/andrea-mattioli/bticino_X8000_rest_api/blob/test/screenshots/sponsor.png
+[github-sponsors]: https://github.com/sponsors/andrea-mattioli

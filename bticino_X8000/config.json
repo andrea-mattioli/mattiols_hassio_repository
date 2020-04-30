@@ -1,41 +1,41 @@
 {
-  "name": "Bticino Smarter",
-  "version": "0.3",
+  "name": "Bticino X8000",
+  "version": "0.1",
   "url": "https://github.com/andrea-mattioli/bticino_X8000_rest_api",
   "slug": "smarter_x8000",
-  "description": "Bticino Chronothermostats RestApi",
+  "description": "Bticino Chronothermostats",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "before",
   "boot": "auto",
+  "map": ["config:rw", "ssl:rw"],
   "options": {
   "client_id": "recived via email",
   "client_secret": "recived via email",
   "subscription_key": "subscription key",
-  "redirect_url": "my home redirect url",
+  "domain": "my home domain example.com",
   "api_user": "chose your api user",
   "api_pass": "chose your api password",
-  "subscribe_c2c": "True|False Use to receive thermostat status from Legrand (Safe 500 query/day)",
   "mqtt_broker": "ip broker",
   "mqtt_port": "mqtt broker port default:1883",
   "mqtt_user": "your mqtt user",
   "mqtt_pass": "your mqtt password",
-  "mqtt_interval": "time of query interval recommended: 5 (NOT USED IF subscribe_c2c = True)"
+  "use_ssl": "True|False {False} for nginx proxy manager"
   },
   "schema": {
   "client_id": "str",
   "client_secret": "password",
   "subscription_key": "password",
-  "redirect_url": "url",
+  "domain": "str",
   "api_user": "str",
   "api_pass": "password",
-  "subscribe_c2c": "bool",
   "mqtt_broker": "str",
   "mqtt_port": "port",
   "mqtt_user": "str",
   "mqtt_pass": "password",
-  "mqtt_interval": "int"
+  "use_ssl": "bool"
   },
   "ports": {
-    "5588/tcp": 5588
+    "5588/tcp": 5588,
+    "80/tcp": null
   }
 }

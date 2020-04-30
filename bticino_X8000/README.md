@@ -5,6 +5,8 @@ Chronothermostat Bticino X8000 Integration
 
 [![Sponsor Mattiols via GitHub Sponsors](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/sponsor.png)](https://github.com/sponsors/andrea-mattioli)
 
+### Italian support: [![fully supported](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/telegram_logo.png)](https://t.me/HassioHelp)
+
 ## 1. First step
 
 ### 1.1. Register a Developer account

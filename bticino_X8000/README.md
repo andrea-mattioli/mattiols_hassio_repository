@@ -3,7 +3,7 @@ Chronothermostat Bticino X8000 Integration
 
 [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 
-[![Sponsor Mattiols via GitHub Sponsors][github-sponsors-shield]][github-sponsors]
+[![Sponsor Mattiols via GitHub Sponsors](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/sponsor.png)](https://github.com/sponsors/andrea-mattioli)
 
 ## 1. First step
 
@@ -146,14 +146,3 @@ example:
     PROTECTION --> set thermostat mode to protection forever
 ```
 change the state_topic and cmd_topic for each thermostat
-
-### Results
-
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/home_ass1.PNG?raw=true "Api Allow")
-
-###
-
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/home_ass2.PNG?raw=true "Api Allow")
-
-[github-sponsors-shield]: https://github.com/andrea-mattioli/bticino_X8000_rest_api/blob/test/screenshots/sponsor.png
-[github-sponsors]: https://github.com/sponsors/andrea-mattioli

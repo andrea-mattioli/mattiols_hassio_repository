@@ -5,6 +5,8 @@ Chronothermostat Bticino X8000 Integration
 
 [![Sponsor Mattiols via GitHub Sponsors](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/sponsor.png)](https://github.com/sponsors/andrea-mattioli)
 
+🍻 [![Sponsor Mattiols via paypal](https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg)](http://paypal.me/mattiols)
+
 ### Italian support: [![fully supported](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/telegram_logo.png)](https://t.me/HassioHelp)
 
 ## 1. First step
@@ -15,7 +17,7 @@ Sign up for a new Developer account on Works with Legrand website (https://devel
 ### 1.2. Subscribe to Legrand APIs
 Sign in, go to menu "API > Subscriptions" and make sure you have "Starter Kit for Legrand APIs" subscription activated; if not, activate it.
 
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/subscription.PNG?raw=true "App Register")
+![Alt text](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/subscription.PNG "App Register")
 
 ### 1.3. Register a new application
 Go to menu "User > My Applications" and click on "Create new" to register a new application:
@@ -31,8 +33,8 @@ Public Url = https://myDomain:5588/
 ```
 First Reply Url = https://myDomain:5588/callback
 ```
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/app1.png?raw=true "App Register")
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/app2.png?raw=true "App Register")
+![Alt text](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/app1.png "App Register")
+![Alt text](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/app2.png "App Register")
 
 ## 2. CONFIGURATION
 
@@ -58,22 +60,22 @@ Else if you use Nginx proxy manager use "use_ssl: false" and proxy bticino_smart
 ### 3.1. 1st RUN
 - Navigate to {http/https}://my_hassio_ip:5588/ and click ***get your code***
 
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api1.png?raw=true "Api Allow")
+![Alt text](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/api1.png "Api Allow")
 
 - **Login with your developer account**
 
 
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api2.png?raw=true "Api Allow")
+![Alt text](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/api2.png "Api Allow")
 
 - **Allow your app permissions**
 
 
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api3.png?raw=true "Api Allow")
+![Alt text](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/api3.png "Api Allow")
 
 - **If you see your Plant Info enjoy!!**
 
 
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api4.png?raw=true "Api Allow")
+![Alt text](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/api4.png "Api Allow")
 
 ## 4. HOME ASSISTANT INTEGRATION
 

@@ -84,7 +84,7 @@ bashio::log.info "Setup config file..."
 cat << EOF > config/config.yml
 api_config:
     client_id: ${CLIENT_ID}
-    client_secret: ${CLIENT_SECRET}
+    client_secret: <bticino>${CLIENT_SECRET}<bticino>
     subscription_key: ${SUBSCRIPTION_KEY}
     domain: ${REST}
     api_user: ${API_USER}

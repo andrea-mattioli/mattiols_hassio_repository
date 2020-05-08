@@ -1,5 +1,6 @@
 # Bticino Home Assistant Integration
 Chronothermostat Bticino X8000 Integration
+## CLICK ON REBUILD AFTER ADD-ON UPGRADE
 
 [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 

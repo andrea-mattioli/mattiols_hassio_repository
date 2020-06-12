@@ -7,6 +7,7 @@ WORKDIR /hassio_bticino_smarter
 
 RUN apk add --no-cache \
         python3 \
+        py3-pip \
         git \
         mosquitto-clients \
         openssl \

@@ -11,6 +11,8 @@ MQTT_PORT=$(bashio::config 'mqtt_port')
 MQTT_USER=$(bashio::config 'mqtt_user')
 MQTT_PASS=$(bashio::config 'mqtt_pass')
 SSL_ENABLE=$(bashio::config 'use_ssl')
+ENABLE_CRON=0
+
 
 API_PIDS=()
 

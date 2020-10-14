@@ -1,8 +1,9 @@
 # Changelog
 ### CLICK ON REBUILD AFTER ADD-ON UPGRADE
 
-## 0.r5
+## 0.5
 
+- Fix Boot problem
 - Fix Boost Issue
 
 ## 0.4

@@ -48,8 +48,10 @@ check_ssl () {
 	bashio::log.error "ERROR can't validate new certificate"
      fi
      if ! grep -q "certbot" /etc/crontabs/root
+	 ENABLE_CRON=1
       then
         echo "0 12 * * * /usr/bin/certbot renew --quiet --config-dir /ssl/bticino/ 2>&1 >> /var/log/cron" >> /etc/crontabs/root
+	    ENABLE_CRON=1
      fi
    else
     bashio::log.info "certificate found!"
@@ -66,6 +68,10 @@ check_ssl () {
      kill -15 "${API_PID[@]}"
      wait "${API_PID[@]}"
      nginx & > /dev/null
+	 if [ $ENABLE_CRON -eq 1 ]
+	    then 
+          crond & > /dev/null
+     fi		  
    fi
 }
 if [ ${SSL_ENABLE} == true ];

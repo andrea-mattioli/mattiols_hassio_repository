@@ -6,22 +6,22 @@ RUN mkdir /hassio_bticino_smarter
 WORKDIR /hassio_bticino_smarter
 
 RUN apk add --no-cache \
+        bash \
+        tzdata \
         python3 \
         py3-pip \
-        git \
         mosquitto-clients \
         openssl \
         nginx \
         certbot \
-        certbot-nginx \
-    \
-  && git clone https://github.com/andrea-mattioli/bticino_X8000_rest_api.git \
-  && mv bticino_X8000_rest_api/* /hassio_bticino_smarter/ \
-  && rm -rf bticino_X8000_rest_api/ 
+        certbot-nginx
 
 COPY run.sh /hassio_bticino_smarter/
 COPY data/nginx.conf* /etc/nginx/
 COPY data/check_cert.py /hassio_bticino_smarter/
+COPY data/bticino_X8000_rest_api.tgz /hassio_bticino_smarter/
+RUN cd /hassio_bticino_smarter/ && tar -xzf bticino_X8000_rest_api.tgz --strip 1 && rm bticino_X8000_rest_api.tgz
+
 
 RUN chmod a+x /hassio_bticino_smarter/run.sh
 

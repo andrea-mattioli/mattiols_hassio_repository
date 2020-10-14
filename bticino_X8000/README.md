@@ -105,7 +105,7 @@ Click on "Try it" to get a card for each thermostat.
 
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/card.PNG?raw=true "HA CARD2")
 
-- ** FOR CUSTOMIZATION MQTT command payload**
+- **FOR CUSTOMIZATION MQTT command payload**
 ```
 topic command: /bticino/{id}/cmd
 topic callback: /bticino/{id}/status

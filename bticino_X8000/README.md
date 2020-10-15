@@ -1,6 +1,8 @@
 # Bticino Home Assistant Integration
 Chronothermostat Bticino X8000 Integration
 
+### CLICK ON REBUILD AFTER ADD-ON UPGRADE and on app https://ip:5588 click ***get your code***
+
 [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 
 [![Sponsor Mattiols via GitHub Sponsors](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/sponsor.png)](https://github.com/sponsors/andrea-mattioli)

@@ -1,7 +1,7 @@
 # Bticino Home Assistant Integration
 Chronothermostat Bticino X8000 Integration
 
-### CLICK ON REBUILD AFTER ADD-ON UPGRADE and on app https://ip:5588 click ***get your code***
+### CLICK ON REBUILD AFTER ADD-ON UPGRADE open the addon's WEBUI and click on ***get your code***
 
 [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 
@@ -30,10 +30,10 @@ Submit your request and wait for a response via email from Legrand (it usually t
 If your app has been approved, you should find in the email your "Client ID" and "Client Secret" attributes.
 
 ```
-Public Url = https://myDomain:5588/
+Public Url = https://github.com/andrea-mattioli/mattiols_hassio_repository
 ```
 ```
-First Reply Url = https://myDomain:5588/callback
+First Reply Url = http://myHassioLocalIP:5588/callback  Ex. http://192.168.1.4:5588/callback
 ```
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/app1.png?raw=true "App Register")
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/app2.png?raw=true "App Register")
@@ -45,22 +45,17 @@ First Reply Url = https://myDomain:5588/callback
 client_id: recived via email
 client_secret: recived via email
 subscription_key: subscription key
-domain: my home domain example.com
-api_user: chose your api user
-api_pass: chose your api password
+domain: my home assistant public domain ex: pippo.duckdns.com:8123 (specify the port if is not standard 443)
+haip: home assistant local ip
 mqtt_broker: ip broker
 mqtt_port: 'mqtt broker port default:1883'
 mqtt_user: your mqtt user
 mqtt_pass: your mqtt password
-use_ssl: 'True|False {False} for nginx proxy manager'
 ```
-### 2.2. Nat API port: "80,5588" on your router/firewall 
-If you use "use_ssl: true" and you have already a valid ssl certificate installed in your hassio env, you can open only 5588 on your router, but if you want a new certificate you must open http port 80!
-Else if you use Nginx proxy manager use "use_ssl: false" and proxy bticino_smarter app with nginx!
 ## 3. START
 
 ### 3.1. 1st RUN
-- Navigate to {http/https}://my_hassio_ip:5588/ and click ***get your code***
+- Open Addon's WEBIU and click ***get your code***
 
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api1.png?raw=true "Api Allow")
 

@@ -35,7 +35,7 @@ Public Url = https://github.com/andrea-mattioli/mattiols_hassio_repository
 ```
 First Reply Url = http://myHassioLocalIP:5588/callback  Ex. http://192.168.1.4:5588/callback
 ```
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/app1.png?raw=true "App Register")
+![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/reg1.PNG?raw=true "App Register")
 ![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/app2.png?raw=true "App Register")
 
 ## 2. CONFIGURATION
@@ -55,9 +55,9 @@ mqtt_pass: your mqtt password
 ## 3. START
 
 ### 3.1. 1st RUN
-- Open Addon's WEBIU and click ***get your code***
+- Open Addon's WEBUI and click ***get your code***
 
-![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/api1.png?raw=true "Api Allow")
+![Alt text](https://github.com/andrea-mattioli/bticino_X8000_rest_api/raw/test/screenshots/web_ui.PNG?raw=true "Api UI")
 
 - **Login with your developer account**
 

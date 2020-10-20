@@ -29,13 +29,13 @@ check_ssl () {
 	bashio::log.error "ERROR can't create self signed certificate"
      fi
      server_key="config/key.pem"
-	 server_crt="config/certificate.pem"
+	 server_cert="config/certificate.pem"
    else
     bashio::log.info "certificate found!"
     for i in ${CERTS}
      do
       if [[ $i == *"fullchain.pem"* ]]; then
-         server_crt=$i
+         server_cert=$i
       elif [[ $i == *"privkey.pem"* ]]; then
          server_key=$i
       fi
@@ -59,7 +59,7 @@ api_config:
     haip: ${HAIP}
     ssl_enable: ${USE_SSL}
     c2c_enable: true
-    server_crt: ${server_crt}
+    server_cert: ${server_cert}
     server_key: ${server_key}
 EOF
 cat << EOF > config/mqtt_config.yml

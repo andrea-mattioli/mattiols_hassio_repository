@@ -14,6 +14,40 @@ MQTT_PASS=$(bashio::config 'mqtt_pass')
 USE_SSL=$(bashio::config 'use_ssl')
 API_PIDS=()
 
+check_ssl () {
+   CERTS=$(python3 check_cert.py ${DOMAIN})
+   echo ${CERTS}
+   if [ -z "${CERTS}" ]
+   then
+     bashio::log.info "no certificate found generate self signed"
+	 openssl req -new -x509 -days 365 -nodes \
+     -out config/certificate.pem \
+     -keyout config/key.pem \
+     -subj "/C=IT/ST=Rome/L=Rome/O=IT/CN="${DOMAIN}""
+     if [ $? != 0 ]
+      then
+	bashio::log.error "ERROR can't create self signed certificate"
+     fi
+     server_key="config/key.pem"
+	 server_crt="config/certificate.pem"
+   else
+    bashio::log.info "certificate found!"
+    for i in ${CERTS}
+     do
+      if [[ $i == *"fullchain.pem"* ]]; then
+         server_crt=$i
+      elif [[ $i == *"privkey.pem"* ]]; then
+         server_key=$i
+      fi
+    done		  
+   fi
+}
+
+if [ ${USE_SSL} == true ];
+then
+   check_ssl
+fi
+
 bashio::log.info "Setup config file..."
 # Setup config
 cat << EOF > config/config.yml
@@ -25,6 +59,8 @@ api_config:
     haip: ${HAIP}
 	ssl_enable: ${USE_SSL}
     c2c_enable: true
+	server_crt: ${server_crt}
+	server_key: ${server_key}
 EOF
 cat << EOF > config/mqtt_config.yml
 mqtt_config:

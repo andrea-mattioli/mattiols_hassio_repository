@@ -10,6 +10,7 @@ RUN apk add --no-cache \
         tzdata \
         python3 \
         py3-pip \
+        openssl \
         mosquitto-clients
 
 COPY run.sh /hassio_bticino_smarter/

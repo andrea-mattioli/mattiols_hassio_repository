@@ -57,10 +57,10 @@ api_config:
     subscription_key: ${SUBSCRIPTION_KEY}
     domain: ${DOMAIN}
     haip: ${HAIP}
-	ssl_enable: ${USE_SSL}
+    ssl_enable: ${USE_SSL}
     c2c_enable: true
-	server_crt: ${server_crt}
-	server_key: ${server_key}
+    server_crt: ${server_crt}
+    server_key: ${server_key}
 EOF
 cat << EOF > config/mqtt_config.yml
 mqtt_config:

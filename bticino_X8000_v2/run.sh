@@ -11,6 +11,7 @@ MQTT_BROKER=$(bashio::config 'mqtt_broker')
 MQTT_PORT=$(bashio::config 'mqtt_port')
 MQTT_USER=$(bashio::config 'mqtt_user')
 MQTT_PASS=$(bashio::config 'mqtt_pass')
+USE_SSL=$(bashio::config 'use_ssl')
 API_PIDS=()
 
 bashio::log.info "Setup config file..."
@@ -22,6 +23,7 @@ api_config:
     subscription_key: ${SUBSCRIPTION_KEY}
     domain: ${DOMAIN}
     haip: ${HAIP}
+	ssl_enable: ${USE_SSL}
     c2c_enable: true
 EOF
 cat << EOF > config/mqtt_config.yml
@@ -31,13 +33,13 @@ mqtt_config:
     mqtt_user: ${MQTT_USER}
     mqtt_pass: ${MQTT_PASS}
 EOF
-# Start nginx
-#nginx & > /dev/null
-#API_PID+=($!)
+
 # Start API
+bashio::log.info "Starting Python Api..."
 python3 bticino.py & > /dev/null
 API_PID+=($!)
 # Start MQTT
+bashio::log.info "Starting MQTT Client..."
 sleep 3
 python3 mqtt.py & > /dev/null
 API_PID+=($!)

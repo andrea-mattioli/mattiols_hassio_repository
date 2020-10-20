@@ -1,6 +1,9 @@
 # Changelog
 ### CLICK ON REBUILD AFTER ADD-ON UPGRADE
 
+## 2.2
+- Patch for DUCK DNS (https on local address)
+
 ## 2.1
 - Removed file config from UI
 - Add C2C Subscription Management 

@@ -67,14 +67,6 @@ mqtt_config:
 EOF
 }
 
-if [ ${USE_SSL} == true ];
-then
-   check_ssl
-   set_conf_ssl
-else
-   set_conf_not_ssl
-fi
-
 set_conf_not_ssl () {
 bashio::log.info "Setup config file..."
 # Setup config
@@ -96,6 +88,15 @@ mqtt_config:
     mqtt_pass: ${MQTT_PASS}
 EOF
 }
+
+if [ ${USE_SSL} == true ];
+then
+   check_ssl
+   set_conf_ssl
+else
+   set_conf_not_ssl
+fi
+
 # Start API
 bashio::log.info "Starting Python Api..."
 python3 bticino.py & > /dev/null

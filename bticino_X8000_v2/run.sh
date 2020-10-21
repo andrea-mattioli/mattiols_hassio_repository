@@ -46,8 +46,12 @@ check_ssl () {
 if [ ${USE_SSL} == true ];
 then
    check_ssl
+   set_conf_ssl
+else
+   set_conf_not_ssl
 fi
 
+set_conf_ssl () {
 bashio::log.info "Setup config file..."
 # Setup config
 cat << EOF > config/config.yml
@@ -69,7 +73,29 @@ mqtt_config:
     mqtt_user: ${MQTT_USER}
     mqtt_pass: ${MQTT_PASS}
 EOF
+}
 
+set_conf_not_ssl () {
+bashio::log.info "Setup config file..."
+# Setup config
+cat << EOF > config/config.yml
+api_config:
+    client_id: ${CLIENT_ID}
+    client_secret: <bticino>${CLIENT_SECRET}<bticino>
+    subscription_key: ${SUBSCRIPTION_KEY}
+    domain: ${DOMAIN}
+    haip: ${HAIP}
+    ssl_enable: ${USE_SSL}
+    c2c_enable: true
+EOF
+cat << EOF > config/mqtt_config.yml
+mqtt_config:
+    mqtt_broker: ${MQTT_BROKER}
+    mqtt_port: ${MQTT_PORT}
+    mqtt_user: ${MQTT_USER}
+    mqtt_pass: ${MQTT_PASS}
+EOF
+}
 # Start API
 bashio::log.info "Starting Python Api..."
 python3 bticino.py & > /dev/null

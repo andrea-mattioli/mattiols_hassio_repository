@@ -54,7 +54,7 @@ fi
 
 if ! grep -q "noipy" /etc/crontabs/root
  then
-   echo "0/5 * * * * /usr/bin/noipy -u ${TOKEN} -n ${DOMAIN} --provider duck 2>&1 >> /var/log/cron" >> /etc/crontabs/root
+   echo "*/5 * * * * /usr/bin/noipy -u ${TOKEN} -n ${DOMAIN} --provider duck 2>&1 >> /var/log/cron" >> /etc/crontabs/root
 fi
 # Start Cron
 bashio::log.info "Start Cron"

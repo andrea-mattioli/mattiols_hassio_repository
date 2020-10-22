@@ -1,6 +1,6 @@
 {
   "name": "Bticino X8000 v2 **BETA**",
-  "version": "2.2",
+  "version": "2.1",
   "url": "https://github.com/andrea-mattioli/mattiols_hassio_repository/tree/master/bticino_X8000_v2",
   "slug": "smarter_x8000_v2",
   "description": "Bticino Chronothermostats BETA RELEASE",
@@ -18,8 +18,7 @@
   "mqtt_broker": "ip broker",
   "mqtt_port": "mqtt broker port default:1883",
   "mqtt_user": "your mqtt user",
-  "mqtt_pass": "your mqtt password",
-  "use_ssl": "True|False {True} Only if you must use ssl on local ip like DuckDNS"
+  "mqtt_pass": "your mqtt password"
   },
   "schema": {
   "client_id": "str",
@@ -30,8 +29,7 @@
   "mqtt_broker": "str",
   "mqtt_port": "port",
   "mqtt_user": "str",
-  "mqtt_pass": "password",
-  "use_ssl": "bool"
+  "mqtt_pass": "password"
   },
   "ports": {
     "5588": 5588

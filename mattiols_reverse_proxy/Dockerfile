@@ -6,7 +6,6 @@ WORKDIR /mattiols_reverse_proxy
 
 RUN apk add --no-cache \
         bash \
-        tzdata \
         python3 \
         py3-pip \
         openssl \

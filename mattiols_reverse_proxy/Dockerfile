@@ -5,13 +5,11 @@ RUN mkdir /mattiols_reverse_proxy
 WORKDIR /mattiols_reverse_proxy
 
 RUN apk add --no-cache \
-        bash \
         python3 \
         py3-pip \
         openssl \
         nginx \
         certbot \
-        tzdata \
         certbot-nginx
 COPY run.sh /mattiols_reverse_proxy
 COPY data/nginx.conf* /etc/nginx/

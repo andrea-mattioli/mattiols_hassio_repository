@@ -1,7 +1,5 @@
 #!/usr/bin/env bashio
 
-ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
-echo "Europe/Rome" > /etc/timezone
 TOKEN=$(bashio::config 'token')
 DOMAIN=$(bashio::config 'domain')
 HAIP=$(bashio::config 'haip')

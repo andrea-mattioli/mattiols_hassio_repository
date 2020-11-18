@@ -14,7 +14,7 @@ RUN apk add --no-cache \
         nginx \
         certbot \
         certbot-nginx
-
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 COPY run.sh /mattiols_reverse_proxy
 COPY data/nginx.conf* /etc/nginx/
 COPY data/check_cert.py /mattiols_reverse_proxy/

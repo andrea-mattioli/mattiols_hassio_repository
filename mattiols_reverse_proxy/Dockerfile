@@ -1,6 +1,6 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
-
+ENV TZ=Europe/Rome
 RUN mkdir /mattiols_reverse_proxy
 
 WORKDIR /mattiols_reverse_proxy

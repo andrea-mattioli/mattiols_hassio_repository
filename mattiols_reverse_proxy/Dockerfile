@@ -11,7 +11,9 @@ RUN apk add --no-cache \
         openssl \
         nginx \
         certbot \
+        tzdata \
         certbot-nginx
+ENV TZ=Europe/Rome
 COPY run.sh /mattiols_reverse_proxy
 COPY data/nginx.conf* /etc/nginx/
 COPY data/check_cert.py /mattiols_reverse_proxy/

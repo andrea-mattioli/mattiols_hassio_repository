@@ -1,6 +1,5 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
-ENV TZ=Europe/Rome
 RUN mkdir /mattiols_reverse_proxy
 
 WORKDIR /mattiols_reverse_proxy
@@ -14,7 +13,6 @@ RUN apk add --no-cache \
         nginx \
         certbot \
         certbot-nginx
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 COPY run.sh /mattiols_reverse_proxy
 COPY data/nginx.conf* /etc/nginx/
 COPY data/check_cert.py /mattiols_reverse_proxy/

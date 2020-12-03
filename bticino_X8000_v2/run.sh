@@ -9,8 +9,17 @@ MQTT_BROKER=$(bashio::config 'mqtt_broker')
 MQTT_PORT=$(bashio::config 'mqtt_port')
 MQTT_USER=$(bashio::config 'mqtt_user')
 MQTT_PASS=$(bashio::config 'mqtt_pass')
+JSON_FILE="/config/.bticino_smarter/smarter.json"
 API_PIDS=()
-
+#Check smarter file
+if [ -s "$JSON_FILE" ] 
+then
+	bashio::log.info "Smarter file already exist and contain some data."
+else
+	bashio::log.info "Init Smarter file ..."
+    mkdir -p /config/.bticino_smarter/
+    mv config/smarter.json /config/.bticino_smarter/smarter.json
+fi
 bashio::log.info "Setup config file..."
 # Setup config
 cat << EOF > config/config.yml

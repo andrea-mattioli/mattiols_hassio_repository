@@ -1,5 +1,8 @@
 # Changelog
 ### CLICK ON REBUILD AFTER ADD-ON UPGRADE
+## 2.3
+- Fix issue about automatic refresh token "Internal Server Error".
+
 ## 2.2
 - Fix config file bug
 - Add notication if addon have a problem (enhancement request)

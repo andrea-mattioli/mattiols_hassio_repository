@@ -18,7 +18,7 @@ then
 else
 	bashio::log.info "Init Smarter file ..."
     mkdir -p /config/.bticino_smarter/
-    mv config/smarter.json /config/.bticino_smarter/smarter.json
+    cp config/smarter.json /config/.bticino_smarter/smarter.json
 fi
 bashio::log.info "Setup config file..."
 # Setup config

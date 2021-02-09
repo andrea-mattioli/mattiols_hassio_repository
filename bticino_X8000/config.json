@@ -1,11 +1,11 @@
 {
   "name": "Bticino X8000",
-  "version": "0.6",
+  "version": "0.7",
   "url": "https://github.com/andrea-mattioli/mattiols_hassio_repository/tree/master/bticino_X8000",
   "slug": "smarter_x8000",
   "description": "Bticino Chronothermostats",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
-  "startup": "before",
+  "startup": "services",
   "boot": "auto",
   "map": ["config:rw", "ssl:rw"],
   "options": {

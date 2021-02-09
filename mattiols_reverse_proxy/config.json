@@ -1,11 +1,11 @@
 {
   "name": "Mattiols Reverse Proxy",
-  "version": "0.1",
+  "version": "0.2",
   "url": "https://github.com/andrea-mattioli/mattiols_hassio_repository/tree/master/mattiols_revese",
   "slug": "mattiols_reverse",
   "description": "Reverse Proxy",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
-  "startup": "before",
+  "startup": "services",
   "boot": "auto",
   "map": ["config:rw", "ssl:rw"],
   "options": {

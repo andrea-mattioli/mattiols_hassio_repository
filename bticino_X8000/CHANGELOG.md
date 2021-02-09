@@ -1,6 +1,7 @@
 # Changelog
 ### CLICK ON REBUILD AFTER ADD-ON UPGRADE
-
+## 0.7
+- Solved WARNING (MainThread) [supervisor.addons.validate] Add-on config 'startup' with 'before' is deprecated. Please report this to the maintainer
 ## 0.6
 - Fix template error for multiple thermostats
 - Fix template error for thermostats name with spaces

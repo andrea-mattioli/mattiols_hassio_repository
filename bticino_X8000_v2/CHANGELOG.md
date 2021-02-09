@@ -1,5 +1,8 @@
 # Changelog
 ### CLICK ON REBUILD AFTER ADD-ON UPGRADE
+## 2.4
+- Solved Solved WARNING (MainThread) [supervisor.addons.validate] Add-on config 'startup' with 'before' is deprecated. Please report this to the maintainer
+- Add Temperature Unit of measurement "enhancement" --> https://github.com/andrea-mattioli/mattiols_hassio_repository/issues/19#issuecomment-770057303
 ## 2.3
 - Fix issue about automatic refresh token "Internal Server Error".
 

@@ -48,16 +48,16 @@ check_ssl
 
 if ! grep -q "certbot" /etc/crontabs/root
  then
-   echo "0 12 * * * /usr/bin/certbot renew --quiet --config-dir /ssl/mattiols/ ; nginx -s reload 2>&1 >> /var/log/cron" >> /etc/crontabs/root
+   echo "0 12 * * * /usr/bin/certbot renew --quiet --config-dir /ssl/mattiols/ ; nginx -s reload 2>&1 >> /dev/null" >> /etc/crontabs/root
 fi
 
 if ! grep -q "noipy" /etc/crontabs/root
  then
-   echo "*/5 * * * * /usr/bin/noipy -u ${TOKEN} -n ${DOMAIN} --provider duck 2>&1 >> /var/log/cron" >> /etc/crontabs/root
+   echo "*/5 * * * * /usr/bin/noipy -u ${TOKEN} -n ${DOMAIN} --provider duck 2>&1 >> /dev/null" >> /etc/crontabs/root
 fi
 # Start Cron
 bashio::log.info "Start Cron"
-/usr/sbin/crond -b -l 8
+/usr/sbin/crond -b -l 8 -L /dev/null
 API_PID+=($!)
 
 # Check IP

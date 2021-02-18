@@ -12,6 +12,8 @@ RUN apk add --no-cache \
         py3-pip \
         git \
         mosquitto-clients \
+        chromium \
+        chromium-chromedriver \
     \
   && git clone -b v2 https://github.com/andrea-mattioli/bticino_X8000_rest_api.git \
   && mv bticino_X8000_rest_api/* /hassio_bticino_smarter/ \

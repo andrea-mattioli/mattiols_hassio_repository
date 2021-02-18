@@ -51,6 +51,8 @@ mqtt_broker: ip broker
 mqtt_port: 'mqtt broker port default:1883'
 mqtt_user: your mqtt user
 mqtt_pass: your mqtt password
+legrand_user: your legrand user
+legrand_pass: your legrand password
 ```
 ## 3. START
 

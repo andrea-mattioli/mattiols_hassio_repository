@@ -9,7 +9,10 @@ MQTT_BROKER=$(bashio::config 'mqtt_broker')
 MQTT_PORT=$(bashio::config 'mqtt_port')
 MQTT_USER=$(bashio::config 'mqtt_user')
 MQTT_PASS=$(bashio::config 'mqtt_pass')
+LEGRAND_USER=$(bashio::config 'legrand_user')
+LEGRAND_PASS=$(bashio::config 'legrand_pass')
 JSON_FILE="/config/.bticino_smarter/smarter.json"
+FLAG=0
 API_PIDS=()
 #Check smarter file
 if [ -s "$JSON_FILE" ] 
@@ -19,6 +22,7 @@ else
 	bashio::log.info "Init Smarter file ..."
     mkdir -p /config/.bticino_smarter/
     cp config/smarter.json /config/.bticino_smarter/smarter.json
+    FLAG=1
 fi
 bashio::log.info "Setup config file..."
 # Setup config
@@ -45,6 +49,23 @@ API_PID+=($!)
 sleep 3
 python3 mqtt.py & > /dev/null
 API_PID+=($!)
+if [ $FLAG = 1 ]
+then
+    if [ ! -z ${LEGRAND_USER} ] || [ ! -z ${LEGRAND_PASS} ]
+    then 
+        bashio::log.info "Trying autologin to Legrand..."
+        python3 login.py ${LEGRAND_USER} ${LEGRAND_PASS} ${HAIP} ${CLIENT_ID}
+        if [ $? = 0 ]
+        then
+            bashio::log.info "Succesfully autologin to Legrand"
+        else
+            bashio::log.info "Something went wrong, can't autologin to Legrand please use a manual procedure"
+        fi
+    else
+        bashio::log.info "Can't use auto login (legrand_user or legrand_pass not set on the addon config), please use a manual procedure"
+    fi
+fi
+
 function stop_api() {
     bashio::log.info "Kill Processes..."
     kill -15 "${API_PID[@]}"

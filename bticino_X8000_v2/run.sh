@@ -12,6 +12,7 @@ MQTT_PASS=$(bashio::config 'mqtt_pass')
 LEGRAND_USER=$(bashio::config 'legrand_user')
 LEGRAND_PASS=$(bashio::config 'legrand_pass')
 JSON_FILE="/config/.bticino_smarter/smarter.json"
+ARCH=$(uname -m)
 FLAG=0
 API_PIDS=()
 #Check smarter file
@@ -22,7 +23,13 @@ else
 	bashio::log.info "Init Smarter file ..."
     mkdir -p /config/.bticino_smarter/
     cp config/smarter.json /config/.bticino_smarter/smarter.json
-    FLAG=1
+    if [ "$ARCH" != "armv7l" ] || [ "$ARCH" != "armhf" ] 
+    then
+        FLAG=1
+        bashio::log.info "64bit Version detected"
+    else
+        bashio::log.info "32bit Version detected can't use autologin"
+    fi
 fi
 bashio::log.info "Setup config file..."
 # Setup config

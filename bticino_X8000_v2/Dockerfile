@@ -12,6 +12,7 @@ RUN /bin/ash -c 'set -ex && \
            bash \
            tzdata \
            python3 \
+           python3-tzlocal \
            py3-pip \
            git \
            mosquitto-clients \
@@ -24,6 +25,7 @@ RUN /bin/ash -c 'set -ex && \
            bash \
            tzdata \
            python3 \
+           python3-tzlocal \
            py3-pip \
            git \
            mosquitto-clients \

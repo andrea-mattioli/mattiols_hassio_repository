@@ -20,6 +20,7 @@ RUN /bin/ash -c 'set -ex && \
            musl-dev \
            libffi-dev \
            python3-dev \
+           cargo \
            \
         && git clone -b v2 https://github.com/andrea-mattioli/bticino_X8000_rest_api.git \
         && mv bticino_X8000_rest_api/* /hassio_bticino_smarter/ \
@@ -38,7 +39,8 @@ RUN /bin/ash -c 'set -ex && \
            libressl-dev \
            musl-dev \
            libffi-dev \
-           python3-dev \         
+           python3-dev \
+           cargo \
            \
         && git clone -b v2 https://github.com/andrea-mattioli/bticino_X8000_rest_api.git \
         && mv bticino_X8000_rest_api/* /hassio_bticino_smarter/ \

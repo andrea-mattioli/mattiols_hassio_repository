@@ -3,7 +3,6 @@
 TOKEN=$(bashio::config 'token')
 DOMAIN=$(bashio::config 'domain')
 HAIP=$(bashio::config 'haip')
-bashio::log.info "my timezone is $TZ"
 ADDON_PIDS=()
 bashio::log.info "start conf for ${DOMAIN}"
 check_ssl () {

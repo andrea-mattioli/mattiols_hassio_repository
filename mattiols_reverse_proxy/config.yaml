@@ -1,0 +1,28 @@
+name: "Mattiols Reverse Proxy"
+init: false
+version: "0.4"
+url: "https://github.com/andrea-mattioli/mattiols_hassio_repository/tree/master/mattiols_revese"
+slug: "mattiols_reverse"
+description: "Reverse Proxy"
+arch: 
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+startup: "services"
+boot: "auto"
+map: 
+  - config:rw
+  - ssl:rw
+options:
+  token: "duckDNS token"
+  domain: "my home domain example.duckdns.org"
+  haip: "my ha local ip (192.168.1.x)"
+schema:
+  token: "str"
+  domain": "str"
+  haip": "str"
+ports:
+  80/tcp: 80
+  443/tcp: 443

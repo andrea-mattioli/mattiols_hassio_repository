@@ -1,8 +1,11 @@
-#!/usr/bin/env bashio
-
+#!/usr/bin/with-contenv bashio
+CONFIG_PATH=/data/options.json
 TOKEN=$(bashio::config 'token')
 DOMAIN=$(bashio::config 'domain')
 HAIP=$(bashio::config 'haip')
+bashio::log.info "DOMAIN: ${DOMAIN}"
+bashio::log.info "HAIP: ${HAIP}"
+bashio::log.info "TOKEN: ${TOKEN}"
 ADDON_PIDS=()
 bashio::log.info "start conf for ${DOMAIN}"
 check_ssl () {

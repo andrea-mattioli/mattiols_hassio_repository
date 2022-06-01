@@ -21,8 +21,8 @@ options:
   haip: "my ha local ip (192.168.1.x)"
 schema:
   token: "str"
-  domain": "str"
-  haip": "str"
+  domain: "str"
+  haip: "str"
 ports:
   80/tcp: 80
   443/tcp: 443

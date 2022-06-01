@@ -1,6 +1,7 @@
 {
   "name": "Mattiols Reverse Proxy",
-  "version": "0.2",
+  "init": false,
+  "version": "0.3",
   "url": "https://github.com/andrea-mattioli/mattiols_hassio_repository/tree/master/mattiols_revese",
   "slug": "mattiols_reverse",
   "description": "Reverse Proxy",

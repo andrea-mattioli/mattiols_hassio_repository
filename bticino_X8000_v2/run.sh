@@ -1,5 +1,5 @@
-#!/usr/bin/env bashio
-
+#!/usr/bin/with-contenv bashio
+CONFIG_PATH=/data/options.json
 CLIENT_ID=$(bashio::config 'client_id')
 CLIENT_SECRET=$(bashio::config 'client_secret')
 SUBSCRIPTION_KEY=$(bashio::config 'subscription_key')

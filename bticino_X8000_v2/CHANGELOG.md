@@ -1,5 +1,8 @@
 # Changelog
 ### CLICK ON REBUILD AFTER ADD-ON UPGRADE
+
+## 2.7
+- Fix s6-overlay-suexec: fatal: can only run as pid 1
 ## 2.6
 - Fix 32 bit error (https://github.com/andrea-mattioli/mattiols_hassio_repository/issues/22)
 ## 2.5

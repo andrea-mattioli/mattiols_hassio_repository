@@ -1,6 +1,10 @@
 # Changelog
 ### CLICK ON REBUILD AFTER ADD-ON UPGRADE
-
+## 2.8
+- Added new entities package
+- Fix "Your manually configured MQTT..."
+### NOTES:
+  To add the new package follow the instructions (https://github.com/andrea-mattioli/mattiols_hassio_repository/blob/master/bticino_X8000_v2/README.md#4-home-assistant-integration) 
 ## 2.7
 - Fix s6-overlay-suexec: fatal: can only run as pid 1
 ## 2.6

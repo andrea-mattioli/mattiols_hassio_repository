@@ -3,7 +3,7 @@ Chronothermostat Bticino X8000 Integration
 
 ### CLICK ON REBUILD AFTER ADD-ON UPGRADE open the addon's WEBUI and click on ***get your code***
 
-[![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
+[![stable](https://badges.github.io/stability-badges/dist/stable.svg)](https://github.com/badges/stability-badges)
 
 [![Sponsor Mattiols via GitHub Sponsors](https://raw.githubusercontent.com/andrea-mattioli/bticino_X8000_rest_api/test/screenshots/sponsor.png)](https://github.com/sponsors/andrea-mattioli)
 

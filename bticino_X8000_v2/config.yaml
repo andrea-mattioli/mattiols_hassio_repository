@@ -1,6 +1,6 @@
 name: "Bticino X8000 v2"
 init: false
-version: "2.7"
+version: "2.8"
 url: "https://github.com/andrea-mattioli/mattiols_hassio_repository/tree/master/bticino_X8000_v2"
 slug: "smarter_x8000_v2"
 description: "Bticino Chronothermostats"

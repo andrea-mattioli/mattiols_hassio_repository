@@ -1,5 +1,9 @@
 # Changelog
 ### CLICK ON REBUILD AFTER ADD-ON UPGRADE
+## 2.9
+- Fix entities package for webhook error (Update webhook trigger...)
+### NOTES:
+  To add the new package follow the instructions (https://github.com/andrea-mattioli/mattiols_hassio_repository/blob/master/bticino_X8000_v2/README.md#4-home-assistant-integration)
 ## 2.8
 - Added new entities package
 - Fix "Your manually configured MQTT..."
